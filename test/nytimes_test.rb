@@ -26,11 +26,7 @@ class NytimesTest < Minitest::Test
     #Set your code to the local variable, "result"
     results = @hash[:results]
     result = results.map do |result|
-      if result[:subsection] == "Politics"
-        result
-      else
-        nil
-      end
+      result if result[:subsection] == "Politics"
     end.compact
 
     assert result.is_a? (Array)
